@@ -44,17 +44,17 @@ while pc < code_len:
 		stack.append(next_byte)
 		pc += 2
 	elif inst == '2':
-		log.debug(f"PC = {hex(pc)},Inst 0x2 add two bytes off stack")
+		log.debug(f"PC = {hex(pc)},Inst 0x2 add two items off stack")
 		a = stack.pop()
 		b = stack.pop()
 		stack.append(a + b)
 	elif inst == '3':
-		log.debug(f"PC = {hex(pc)},Inst 0x3 subtract two bytes off stack")
+		log.debug(f"PC = {hex(pc)},Inst 0x3 subtract two items off stack")
 		a = stack.pop()
 		b = stack.pop()
 		stack.append(a - b)
 	elif inst == '4':
-		log.debug(f"PC = {hex(pc)},Inst 0x4 mul two bytes off stack")
+		log.debug(f"PC = {hex(pc)},Inst 0x4 mul two items off stack")
 		a = stack.pop()
 		b = stack.pop()
 		stack.append(a * b)
