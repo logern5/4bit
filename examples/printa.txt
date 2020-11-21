@@ -1,0 +1,4 @@
+# Prints the letter 'a'
+1 # Push byte to stack
+61 # Byte to push (0x61 = 'a')
+a # Pop char from stack and display

@@ -1,0 +1,20 @@
+# Truth machine: If the user inputs 1, print 1 infinitely. If the user inputs 0, print 0 and exit.
+# To compile the 4b file into a bin:
+# $ cat truthmachine.4b | xxd -r -p > truthmachine.bin
+# To run:
+# $ python3 4bit.py truthmachine.bin
+0: 1 # Push byte to stack
+1: 30 # Byte to compare to (0x31 = '1')
+3: 1 # Push byte to stack
+4: 0f # Byte addr to jump to (to print '0')
+6: d # Pop addr off A-stack and push on to B-stack
+7: 9 # read byte from stdin
+8: 5 # Jump to print '0' if read byte equals '0'
+# Code for printing '1' infinitely starts here
+9: 1 # Push byte to stack
+a: 0d # Byte addr to jump to (loop to print '1')
+c: d # Pop addr off A-stack and push onto B-stack
+d: a # Print byte from stack ('1')
+e: 8 # Unconditional jump to print byte again
+# Code for printing '0' starts here
+f: a # Print byte from stack ('0')
